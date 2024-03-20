@@ -107,7 +107,7 @@ export default {
       console.log('New marker added at:', latlng);
     },
     lunchWebSocket() {
-        const WS = new WebSocket('ws://localhost:3000');
+        const WS = new WebSocket('ws://bin.greatergraceag.com');
 
         console.log("Starting connection to WebSocket Server");
         WS.onopen = (event) => {

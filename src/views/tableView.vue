@@ -139,7 +139,7 @@ export default {
       this.emitter.emit('editOrDelete', JSON.stringify(client));
     },
     lunchWebSocket() {
-        const WS = new WebSocket('ws://localhost:3000');
+        const WS = new WebSocket('ws://bin.greatergraceag.com');
         console.log("Starting connection to WebSocket Server");
         
 
