@@ -138,7 +138,6 @@ module.exports = {
         order: [['createdAt', 'DESC']], 
         });
 
-        console.log(req.body.level,req.params.id )
 
         if (req.body.level >= 80 ) {
             level = 'empty';
@@ -160,7 +159,7 @@ module.exports = {
                 record = await db.record.update({ level:req.body.level }, {where:{id : previousRecord.dataValues.id}});
             }else{
                 record = await db.record.create({ clientId: req.params.id, level:req.body.level,  isVerified: true });
-                // module.exports.sendMessage(req.params.id)
+                module.exports.sendMessage(req.params.id)
             }
         }
 

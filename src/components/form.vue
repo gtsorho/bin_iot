@@ -88,7 +88,7 @@ export default {
   methods: {
     createClient() {
       let token = this.getCookie('token')
-      axios.post('http://localhost:3000/api/clients', this.client, { headers:{'Authorization': `Bearer ${token}`}})
+      axios.post('http://bin.greatergraceag.com/api/clients', this.client, { headers:{'Authorization': `Bearer ${token}`}})
         .then((response) => {
           this.clients = response.data;
           this.$emit('clientCreated')
@@ -99,7 +99,7 @@ export default {
     },
     updateClient() {
       let token = this.getCookie('token')
-      axios.put('http://localhost:3000/api/clients/' + this.client.id, this.client, { headers:{'Authorization': `Bearer ${token}`}})
+      axios.put('http://bin.greatergraceag.com/api/clients/' + this.client.id, this.client, { headers:{'Authorization': `Bearer ${token}`}})
       .then((response) => {
         this.clients = response.data;
         this.$emit('clientCreated')
@@ -110,7 +110,7 @@ export default {
     },
     deleteClient() {
       let token = this.getCookie('token')
-      axios.delete('http://localhost:3000/api/delete/clients/'+ this.client.id, { headers:{'Authorization': `Bearer ${token}`}})
+      axios.delete('http://bin.greatergraceag.com/api/delete/clients/'+ this.client.id, { headers:{'Authorization': `Bearer ${token}`}})
         .then((response) => {
           this.$emit('clientCreated')
         })
@@ -120,7 +120,7 @@ export default {
     },
     getUsers() {
       let token = this.getCookie('token')
-      axios.get('http://localhost:3000/api/users', { headers:{'Authorization': `Bearer ${token}`}})
+      axios.get('http://bin.greatergraceag.com/api/users', { headers:{'Authorization': `Bearer ${token}`}})
         .then((response) => {
           this.users = response.data;
         })
