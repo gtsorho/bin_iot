@@ -90,6 +90,7 @@ export default {
   created(){
     this.emitter.on("clientChange", () => {
       this.getClients()
+      this.showRecord = false
     });
   },
   mounted() {

@@ -94,6 +94,10 @@ export default {
     }
   },
   created(){
+    this.emitter.on("clientChange", () => {
+      this.isModalVisible = false
+    });
+
     this.emitter.on("editOrDelete", (data) => {
       this.clientData = data
       this.isModalVisible = true
