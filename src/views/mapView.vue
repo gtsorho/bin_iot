@@ -34,7 +34,7 @@ export default {
     this.lunchWebSocket()
 
         if (!this.map) {
-        this.map = L.map(this.$refs.map).setView([5.66170297748191, -0.04930353491765117], 17);
+        this.map = L.map(this.$refs.map).setView([5.665740089637373, -0.15804648368821975], 17);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
