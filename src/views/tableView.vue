@@ -72,7 +72,6 @@
 </template>
 
 <script>
-//  import WS from '../services/websocket';
  import axios from 'axios'
 export default {
   emits:['editOrDelete'],
@@ -87,6 +86,11 @@ export default {
       record:{},
       token:null
     };
+  },
+  created(){
+    this.emitter.on("clientChange", () => {
+      this.getClients()
+    });
   },
   mounted() {
     this.token = this.getCookie('token')

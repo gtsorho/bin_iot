@@ -91,7 +91,7 @@ export default {
       axios.post('http://bin.greatergraceag.com/api/clients', this.client, { headers:{'Authorization': `Bearer ${token}`}})
         .then((response) => {
           this.clients = response.data;
-          this.$emit('clientCreated')
+                this.emitter.emit('clientChange');
         })
         .catch((err) => {
           console.error(err);
@@ -99,10 +99,10 @@ export default {
     },
     updateClient() {
       let token = this.getCookie('token')
-      axios.put('http://bin.greatergraceag.com/api/clients/' + this.client.id, this.client, { headers:{'Authorization': `Bearer ${token}`}})
+      axios.put('http://bin.greatergraceag.com/api/clients/update/' + this.client.id, this.client, { headers:{'Authorization': `Bearer ${token}`}})
       .then((response) => {
         this.clients = response.data;
-        this.$emit('clientCreated')
+              this.emitter.emit('clientChange');
       })
       .catch((err) => {
         console.error(err);
@@ -112,7 +112,7 @@ export default {
       let token = this.getCookie('token')
       axios.delete('http://bin.greatergraceag.com/api/delete/clients/'+ this.client.id, { headers:{'Authorization': `Bearer ${token}`}})
         .then((response) => {
-          this.$emit('clientCreated')
+                this.emitter.emit('clientChange');
         })
         .catch((err) => {
           console.error(err);

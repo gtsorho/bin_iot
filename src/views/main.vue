@@ -1,6 +1,6 @@
 <template>
   <Navbar @clientSubmitted="forceGetClients = true"   :coordinates="coordinates"  :notifications="notifications" />
-  <RouterView :forceGet="true" @newMarker="passCord" />
+  <RouterView :forceGet="forceGetClients" @newMarker="passCord" />
   
 </template>
 
