@@ -91,7 +91,7 @@ export default {
       axios.post('http://bin.greatergraceag.com/api/clients', this.client, { headers:{'Authorization': `Bearer ${token}`}})
         .then((response) => {
           this.clients = response.data;
-                this.emitter.emit('clientChange');
+          this.emitter.emit('clientChange');
         })
         .catch((err) => {
           console.error(err);

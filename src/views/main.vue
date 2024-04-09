@@ -38,7 +38,7 @@ import axios from 'axios'
         .then((response) => {
           const clients = response.data;
           clients.forEach(client => {
-            if (client.level >= 80) {
+            if (client.level <= 20) {
               this.notifications.push(client);
             }
           });

@@ -40,18 +40,13 @@ app.post('/api/clients/:id/levelChange',  upload.none(), trashMgt.levelChange)
 
 app.get('/api/records', authMiddleware, trashMgt.getRecords);
 app.get('/api/records/:id', authMiddleware, trashMgt.getOneClient);
-app.put('/api/record/:id', authMiddleware, trashMgt.updateRecord);
+app.post('/api/record/update/:id', authMiddleware, trashMgt.updateRecord);
 app.post('/api/auth', upload.fields([]), trashMgt.login);
 
 app.post('/api/user', upload.fields([]), trashMgt.createUser);
 app.get('/api/users',authMiddleware, trashMgt.getUsers);
 app.get('/api/user/:id',authMiddleware, trashMgt.getUser);
 app.delete('/api/user/:id',authMiddleware, trashMgt.destroyUser);
-
-
-
-
-  
 
 
 

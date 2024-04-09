@@ -118,6 +118,7 @@ export default {
     hideModal() {
       this.isModalVisible = false;
       this.clientData = null
+      this.emitter.emit('goBack');
     },
     clientCreated(){
       this.$emit('clientSubmitted')

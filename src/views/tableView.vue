@@ -40,8 +40,9 @@
       </table>
     </div>
 
-    <div class="block w-full overflow-x-auto" v-else>
-      <table class="items-center bg-transparent w-full border-collapse ">
+    <div class="block w-full overflow-x-auto h-96" v-else>
+      <p class="text-sm text-grey-200 py-5">This page verifies whether or not a waste bin has been emptied</p>
+      <table class="items-center bg-transparent w-full  border-collapse ">
         <thead>
           <tr class="hover:bg-gray-200">
             <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle text-center border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold ">{{record.name}} @ {{record.location}}</th>
@@ -51,7 +52,7 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody class="">
           <tr class="hover:bg-gray-200" v-for="(log, i) in record.records" :key="i">
             <td class="border-t-0 px-6 text-center align-middle border-l-0 border-r-0 ">
               <i class="bi bi-check2-all text-green-500 text-xl"></i>
@@ -92,6 +93,9 @@ export default {
       this.getClients()
       this.showRecord = false
     });
+    this.emitter.on("goBack", () => {
+      this.showRecord = false
+    });
   },
   mounted() {
     this.token = this.getCookie('token')
@@ -122,7 +126,7 @@ export default {
     },
     verifyRecord(id, clientId, verified) {
       if(!verified){
-        axios.put('http://bin.greatergraceag.com/api/record/'+ id, { headers:{'Authorization': `Bearer ${this.token}`}})
+        axios.post('http://bin.greatergraceag.com/api/record/update/'+ id,{}, { headers:{'Authorization': `Bearer ${this.token}`}})
         .then((response) => {
           this.getRecord(clientId)
         })
