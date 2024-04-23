@@ -97,7 +97,7 @@ module.exports = {
         let client  = await db.client.findOne({where:{id:clientId}, include: db.user})
         axios.post('https://api.mnotify.com/api/sms/quick?key=tAUkX60KwFyFKzxCv4YZKdGH3', 
         {
-            recipient: [client.User.phone],
+            recipient: [client.user.phone],
             sender: process.env.MNOTIFY_TOPIC,
             message: `${client.name} bin at ${client.location} is full`,
             is_schedule: 'false',

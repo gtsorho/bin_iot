@@ -74,7 +74,7 @@
 
 // void sendDataToServer(int distance, float percentage) {
 //   // Connect to the server
-//   if (client.connect("192.168.88.160", 3000)) {
+//   if (client.connect("bin.greatergraceag.com", 80)) {
 //     // Form the HTTP POST request
 
     
@@ -89,7 +89,7 @@
   
 //     String postData = jsonString;
 //     client.println("POST /api/clients/2/levelChange HTTP/1.1");
-//     client.println("Host: 192.168.88.160:3000");
+//     client.println("Host: bin.greatergraceag.com");
 //     client.println("Connection: close");
 //     client.println("Content-Type: application/json");
 //     client.print("Content-Length: ");
